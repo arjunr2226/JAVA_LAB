@@ -1,5 +1,3 @@
-package third;
-
 class Complex
 {
     private int real;
@@ -31,7 +29,7 @@ class Complex
         int r = obj1.real + obj2.real;
         int i = obj1.img + obj2.img;
 
-        System.out.println( r + " + " + "i" + i);
+        System.out.println( r + " + " + i + "i" );
     }
 }
 
