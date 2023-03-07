@@ -1,37 +1,68 @@
-class Product
+import java.util.Scanner;
+
+class Product 
 {
-	int pcode;
-	String pname;
-	int price;
+  private int pcode;
+  private String pname;
+  private int price;
+  
+  public void setValues(Scanner sc)
+  {
+    System.out.println("Enter Pcode: ");
+    pcode = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Enter Pname: ");
+    pname = sc.nextLine();
+    System.out.println("Enter Price: ");
+    price = sc.nextInt();
+  }
+
+  public int getPcode()
+  {
+    return pcode;
+  }
+  
+  public String getPname()
+  {
+    return pname;
+  }
+  
+  public int getPrice()
+  {
+    return price;
+  }
+
+  public static void compare(Product obj1, Product obj2, Product obj3)
+  {
+    if(obj1.price < obj2.price && obj1.price < obj3.price)
+    {
+      System.out.println("Smallest : " + obj1.price);
+    }
+    else if(obj2.price < obj1.price && obj2.price < obj3.price)
+    {
+      System.out.println("Smallest : " + obj2.price);
+    }
+    else
+    {
+      System.out.println("Smallest : " + obj3.price);
+    }
+  }
 }
 
-class Main
+public class Main
 {
-	public static void main(String args[])
-	{
-		Product obj1 = new Product();
-		Product obj2 = new Product();
-		Product obj3 = new Product();
-		obj1.pcode = 1;
-		obj2.pcode = 2;
-		obj3.pcode = 3;
-		obj1.pname = "Dove";
-		obj2.pname = "Pears";
-		obj3.pname = "lifebuoy";
-		obj1.price = 65;
-		obj2.price = 58;
-		obj3.price = 25;
-		if(obj1.price < obj2.price && obj1.price < obj3.price)
-		{
-			System.out.println("Lowest : " + obj1.price + " Name: " + obj1.pname );
-		}
-		else if(obj2.price < obj3.price)
-		{
-			System.out.println("Lowest : " + obj2.price + " Name: " + obj2.pname );
-		}
-		else
-		{
-			System.out.println("Lowest : " + obj3.price + " Name: " + obj3.pname );
-		}
-	}
+  public static void main(String args[])
+  {
+    Scanner sc = new Scanner(System.in);
+
+    Product obj1 = new Product();
+    Product obj2 = new Product();
+    Product obj3 = new Product();
+
+    obj1.setValues(sc);
+    obj2.setValues(sc);
+    obj3.setValues(sc);
+
+    Product.compare(obj1, obj2, obj3);
+  }
 }
