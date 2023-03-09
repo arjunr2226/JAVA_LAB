@@ -31,8 +31,6 @@ public class Main
 {
   public static void main(String args[])
   {
-    CPU o1 = new CPU();
-    CPU.Processor o2 = o1.new Processor();
     CPU.Processor.RAM o3 = new CPU.Processor.RAM();
     o3.show();
   }
