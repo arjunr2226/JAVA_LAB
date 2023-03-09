@@ -17,7 +17,11 @@ class CPU
        {
         CPU cpuObj = new CPU();
         CPU.Processor processorObj = cpuObj.new Processor();
-        System.out.println(cpuObj.price);
+        System.out.println("Price: " + cpuObj.price);
+        System.out.println("Number of Cores: " + processorObj.noCores);
+        System.out.println("Processor Manufacture: " + processorObj.manufacture);
+        System.out.println("RAM Memory: " + memory);
+        System.out.println("RAM Manufacture: " + manufacture);
        }
     }
   }
