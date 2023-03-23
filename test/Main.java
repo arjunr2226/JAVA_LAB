@@ -19,8 +19,7 @@ class CPU
         System.out.print("Enter Manufacturer: ");
         manufacture = sc.nextLine();
     }
-  }
-  static class RAM
+    static class RAM
     {
        int memory = 8;
        String manufacture = "crucial";
@@ -39,7 +38,6 @@ class CPU
         CPU cpuObj = new CPU();
         CPU.Processor processorObj = cpuObj.new Processor();
         setValues(sc, processorObj);
-        System.out.println("\nDetails: \n");
         System.out.println(
         "\nPrice: " +cpuObj.price + 
         "\nnoCores: " +processorObj.noCores+  
@@ -48,13 +46,14 @@ class CPU
         "\nRAM Manufacture: "+manufacture);
        }
     }
+  }
 }
 
 public class Main
 {
   public static void main(String args[])
   {
-    CPU.RAM o3 = new CPU.RAM();
+    CPU.Processor.RAM o3 = new CPU.Processor.RAM();
     o3.show();
   }
 }

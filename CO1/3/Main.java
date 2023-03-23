@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Complex
 {
     private int real;
@@ -36,11 +38,25 @@ class Complex
 public class Main {
     public static void main(String args[])
     {
+        int r1, r2, i1, i2;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("ENTER REAL PART 1: ");
+        r1 = sc.nextInt();
+        sc.nextLine();
+        System.out.print("ENTER REAL PART 2: ");
+        r2 = sc.nextInt();
+        sc.nextLine();
+        System.out.print("ENTER IMG PART 1: ");
+        i1 = sc.nextInt();
+        sc.nextLine();
+        System.out.print("ENTER IMG PART 2: ");
+        i2 = sc.nextInt();
+        sc.nextLine();
         Complex obj = new Complex();
-        Complex obj1 = new Complex(2, 3);
-        Complex obj2 = new Complex(2, 3);
+        Complex obj1 = new Complex(r1, i1);
+        Complex obj2 = new Complex(r2, i2);
 
         obj.add(obj1, obj2);
-        
+        sc.close();
     }
 }

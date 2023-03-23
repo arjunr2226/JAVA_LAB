@@ -8,12 +8,12 @@ class Product
   
   public void setValues(Scanner sc)
   {
-    System.out.println("Enter Pcode: ");
+    System.out.print("Enter Pcode: ");
     pcode = sc.nextInt();
     sc.nextLine();
-    System.out.println("Enter Pname: ");
+    System.out.print("Enter Pname: ");
     pname = sc.nextLine();
-    System.out.println("Enter Price: ");
+    System.out.print("Enter Price: ");
     price = sc.nextInt();
   }
 
@@ -36,15 +36,15 @@ class Product
   {
     if(obj1.price < obj2.price && obj1.price < obj3.price)
     {
-      System.out.println("Smallest : " + obj1.price);
+      System.out.print("Smallest : " + obj1.price);
     }
     else if(obj2.price < obj1.price && obj2.price < obj3.price)
     {
-      System.out.println("Smallest : " + obj2.price);
+      System.out.print("Smallest : " + obj2.price);
     }
     else
     {
-      System.out.println("Smallest : " + obj3.price);
+      System.out.print("Smallest : " + obj3.price);
     }
   }
 }

@@ -21,7 +21,6 @@ class Matrix
     {
         int res[][] = new int[r][c];
         boolean flag = true;
-        System.out.println(res.length);
         for(int i=0; i<res.length; i++)
         {
             for(int j=0; j<res.length; j++)
@@ -29,7 +28,10 @@ class Matrix
                 if(m1[i][j] == m2[i][j])
                   continue;
                 else
-                flag = false;
+                    {
+                        flag = false;
+                        break;
+                    }
             }
         }
         return flag;
