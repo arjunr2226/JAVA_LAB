@@ -3,19 +3,29 @@ import java.util.Scanner;
 
 class Array
 {
-    public String createString(Scanner sc)
+    int n;
+    public String[] createString(Scanner sc)
     {
-        System.out.print("ENTER THE STRING: ");
-        String str = sc.nextLine();
+        System.out.print("ENTER THE SIZE: ");
+        n = sc.nextInt();
+        String[] str = new String[n];
+        System.out.print("ENTER THE STRINGS: ");
+        for(int i=0; i<n; i++)
+            str[i] = sc.next();
         return str;
     }
 
-    public void sort(String str)
+    public void sort(String[] strArr)
     {
         // System.out.println("Before Sorting: " + str);
-        char[] strArr = str.toCharArray();
+        System.out.println("Before Sorting: ");
+        for(int i=0; i<n; i++)
+            System.out.print(strArr[i] + "\t");
+        // char[] strArr = str.toCharArray();
         Arrays.sort(strArr);
-        System.out.println("After Sorting: " + new String(strArr));
+        System.out.println("\n\nAfter Sorting: ");
+        for(int i=0; i<n; i++)
+            System.out.print(strArr[i] + "\t");
     }
 }
 
@@ -24,7 +34,7 @@ public class Main{
     {
         Scanner sc = new Scanner(System.in);
         Array strObj = new Array();
-        String str = strObj.createString(sc); 
+        String[] str = strObj.createString(sc); 
         strObj.sort(str);
     }
 }
