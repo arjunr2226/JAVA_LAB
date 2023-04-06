@@ -9,9 +9,6 @@ class Student
     this.name = name;
     this.address = address;
   }
-  
-  
-  
 }
 
 class Sports extends Student
@@ -23,9 +20,6 @@ class Sports extends Student
     this.sportName = sportName;
     this.score = score;
   }
-  
-  
-  
 }
 
 class Result extends Sports
@@ -36,18 +30,16 @@ class Result extends Sports
     super(studId, name, address, sportName, score);
     this.mark = mark;
   }
-  
   public void show()
   {
     System.out.println(
       "STUDENT_ID: " + studId 
-      + "NAME: " + name 
-      + "ADDRESS: " + address 
-      + "MAKR: " + mark 
-      + "SPORTS_NAME: " + sportName
-      + "SCORE: " + score);
+      + "\nNAME: " + name 
+      + "\nADDRESS: " + address 
+      + "\nMAKR: " + mark 
+      + "\nSPORTS_NAME: " + sportName
+      + "\nSCORE: " + score);
   }
-
 }
 
 public class Main

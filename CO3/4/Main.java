@@ -11,35 +11,65 @@ class Publisher
 
 class Book extends Publisher
 {
-  String title, author;
+  String author;
+  int price;
 
-  public Book(String publisherName, String title, String author) {
+  public Book(String publisherName, String author, int price) {
     super(publisherName);
-    this.title = title;
     this.author = author;
+    this.price = price;
   }
   
 }
 
 class Litrature extends Book
 {
-  String litratureName;
+  String genre, bookName;
 
-  public Litrature(String publisherName, String title, String author, String litratureName) {
-    super(publisherName, title, author);
-    this.litratureName = litratureName;
+  public Litrature(String publicationName, String author, int price, String genre, String bookName) {
+    super(publicationName, author, price);
+    this.genre = genre;
+    this.bookName = bookName;
+  }
+
+  void display()
+  {
+    System.out.println("-------------------------------------------------");
+    System.out.println("DETAILS OF LITRATURE"); 
+    System.out.println("----------------------");
+    System.out.println(
+    "PUBLISHER: " + publicationName +
+    "\nAUTHOR: " + author +
+    "\nPRICE: " + price + 
+    "\nGENRE: " + genre +
+    "\nBOOKNAME: " + bookName);
+    System.out.println("-------------------------------------------------");
   }
 }
 
 class Fiction extends Book
 {
-  String fictionName;
+  String genre, bookName;
 
-  public Fiction(String publisherName, String title, String author, String fictionName) {
-    super(publisherName, title, author);
-    this.fictionName = fictionName;
+  public Fiction(String publicationName, String author, int price, String genre, String bookName) {
+    super(publicationName, author, price);
+    this.genre = genre;
+    this.bookName = bookName;
   }
-  
+
+  void display()
+  {
+    System.out.println("-------------------------------------------------");
+    System.out.println("DETAILS OF FICTION"); 
+    System.out.println("----------------------");
+    System.out.println(
+    "PUBLISHER: " + publicationName +
+    "\nAUTHOR: " + author +
+    "\nPRICE: " + price + 
+    "\nGENRE: " + genre +
+    "\nBOOKNAME: " + bookName);
+    System.out.println("-------------------------------------------------");
+  }
 }
 
 public class Main
@@ -47,6 +77,27 @@ public class Main
   public static void main(String args[])
   {
     Scanner sc = new Scanner(System.in);
-    
+    int ch;
+    do
+    {
+      System.out.print("ENTER 1: LITRATURE 2: FICTION\nCHOICE: ");
+      ch = sc.nextInt();
+      switch(ch)
+      {
+        case 1: 
+          System.out.print("ENTER PUBLISHER, AUTHOR, PRICE, GENRE, BOOK NAME: ");
+          Litrature l = new Litrature(sc.next(),sc.next(),sc.nextInt(), sc.next(),sc.next());
+          l.display();
+          break;
+        case 2: 
+          System.out.print("ENTER PUBLISHER, AUTHOR, PRICE, GENRE, BOOK NAME: ");
+          Fiction f = new Fiction(sc.next(),sc.next(),sc.nextInt(), sc.next(),sc.next());
+          f.display();
+          break;
+        default:
+          System.out.println("NOT VALID!!");
+      }
+    }while(ch != 0);
+    sc.close();
   }
 }
