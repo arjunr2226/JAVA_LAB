@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 interface BillInterface
 {
-  int calc();
+  int calc(int size);
 }
 
-class Bill
+class Bill implements BillInterface
 {
   int[] productId, quantity, unit_price;
   char[] name;
@@ -17,6 +17,7 @@ class Bill
     this.name = name;
   }
 
+  @Override
   public int calc(int size)
   {
     int net_amount=0;
