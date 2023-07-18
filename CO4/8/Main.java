@@ -1,58 +1,73 @@
-import java.util.EmptyStackException;
+import java.util.*;
 
-class Stack<T> {
-    private static class Node<T> {
-        private final T data;
-        private Node<T> next;
+class MyStack<T> {
+    ArrayList<T> stack;
 
-        private Node(T data) {
-            this.data = data;
-        }
+    public MyStack() {
+        stack = new ArrayList<>();
     }
 
-    private Node<T> top;
-
-    public void push(T data) {
-        Node<T> newNode = new Node<>(data);
-        newNode.next = top;
-        top = newNode;
+    void Push(T item) {
+        stack.add(item);
     }
 
-    public T pop() {
-        if (isEmpty()) {
-            throw new EmptyStackException();
-        }
-
-        T data = top.data;
-        top = top.next;
-        return data;
+    void Pop() {
+        System.out.println("Popped: " + stack.remove(stack.size() - 1));
     }
 
-    public T peek() {
-        if (isEmpty()) {
-            throw new EmptyStackException();
-        }
-
-        return top.data;
-    }
-
-    public boolean isEmpty() {
-        return top == null;
+    void peek() {
+        System.out.println("Top Element: " + stack.get(stack.size() - 1));
     }
 }
 
 public class Main {
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+    public static void main(String[] a) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose the type:\n1.Integer\n2.String\n");
+        int c = sc.nextInt();
 
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-
-        System.out.println("Peek: " + stack.peek());
-
-        while (!stack.isEmpty()) {
-            System.out.println("Pop: " + stack.pop());
+        if (c == 1) {
+            MyStack<Integer> stack = new MyStack<>();
+            int choice;
+            do {
+                System.out.println("Enter the choice:\n1.Push\n2.Pop\n3.Top value\n0.Exit");
+                choice = sc.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Enter the value:");
+                        int item = sc.nextInt();
+                        stack.Push(item);
+                        break;
+                    case 2:
+                        stack.Pop();
+                        break;
+                    case 3:
+                        stack.peek();
+                        break;
+                }
+            } while (choice != 0);
+        } else {
+            MyStack<String> stack = new MyStack<>();
+            int choice;
+            do {
+                System.out.println("Enter the choice:\n1.Push\n2.Pop\n3.Top value\n0.Exit");
+                choice = sc.nextInt();
+                switch (choice) {
+                    case 1:
+                        sc.nextLine();
+                        System.out.println("Enter the value:");
+                        String item = sc.nextLine();
+                        stack.Push(item);
+                        break;
+                    case 2:
+                        stack.Pop();
+                        break;
+                    case 3:
+                        stack.peek();
+                        break;
+                }
+            } while (choice != 0);
         }
+        sc.close();
     }
 }
