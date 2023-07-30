@@ -1,5 +1,3 @@
-package q4;
-
 import java.awt.*;
 import java.awt.event.*;
 
