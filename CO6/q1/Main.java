@@ -3,10 +3,10 @@ import java.io.*;
 public class Main {
 
 	public static void main(String[] args) {
-		File dir = new File("C:\\Users\\ok\\Desktop\\Aptitude");
+		File dir = new File("path here");
 		
 		listDir(dir);
-		boolean res = search(dir, "tata.pptx");
+		boolean res = search(dir, "file.extension here");
 	}
 	
 	public static void listDir(File dir) {
