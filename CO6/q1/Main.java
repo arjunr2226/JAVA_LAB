@@ -1,43 +1,36 @@
-import java.io.File;
+import java.io.*;
 
 public class Main {
+
 	public static void main(String[] args) {
 		File dir = new File("C:\\Users\\ok\\Desktop\\Aptitude");
+		
 		listDir(dir);
-		boolean res = searchFile(dir, "tata.pptx");
-		if(res) {
-			System.out.println("Found");
-		}else {
-			System.out.println("Not Found");
-		}
+		boolean res = search(dir, "tata.pptx");
 	}
 	
 	public static void listDir(File dir) {
-		File elements[] = dir.listFiles();
-//		int countFile=0, countDir=0;
-		for(File element : elements) {
-			if(element.isFile()) {
-				System.out.println(element.getName());
-//				countFile += 1;
-			} 
-			else if(element.isDirectory()) {
-				listDir(element.getAbsoluteFile());
-//				countDir += 1;
+		File[] files = dir.listFiles();
+		for(File file: files) {
+			if(file.isFile()) {
+				System.out.println(file.getName());
+			} else if(file.isDirectory()){
+				listDir(file);
 			}
 		}
-//		System.out.println("Files: "+countFile + " Directories: " + countDir);
 	}
 	
-	public static boolean searchFile(File dir, String name) {
-		File[] elements = dir.listFiles();
-		for(File element: elements) {
-			if(element.isFile() && element.getName().equals(name)) {
+	public static boolean search(File dir, String name) {
+		File[] files = dir.listFiles();
+		for(File file: files) {
+			if(file.isFile() && file.getName().equals(name)) {
+				System.out.println("Found at: " + file.getAbsolutePath());
 				return true;
-			}
-			else if(element.isDirectory()) {
-				searchFile(element.getAbsoluteFile(), name);
+			} else if(file.isDirectory()){
+				search(file, name);
 			}
 		}
 		return false;
 	}
+
 }
